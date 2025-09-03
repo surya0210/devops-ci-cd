@@ -36,7 +36,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Build Docker image
+    - name: Build Docker image (local validation)
       run: docker build -t fitness-app .
 
   deploy-ec2:
@@ -57,15 +57,26 @@ jobs:
           mkdir -p ~/app
           cd ~/app
 
-          if [ ! -d "devops-ci-cd-main" ]; then
+          # Clone repo if not exists
+          if [ ! -d "devops-ci-cd" ]; then
             git clone https://github.com/surya0210/devops-ci-cd.git
           fi
 
-          cd devops-ci-cd-main
+          cd devops-ci-cd
+
+          # Allow git safe directory
+          git config --global --add safe.directory /home/ubuntu/app/devops-ci-cd
+
+          # Pull latest changes
           git pull origin main
 
-          docker stop fitness-app || true
-          docker rm fitness-app || true
+          # Stop & remove old container
+          sudo docker stop fitness-app || true
+          sudo docker rm fitness-app || true
 
-          docker build -t fitness-app .
-          docker run -d -p 5000:5000 --name fitness-app fitness-app
+          # Optional: clean up dangling images
+          sudo docker system prune -af || true
+
+          # Build new image & run
+          sudo docker build -t fitness-app .
+          sudo docker run -d -p 5000:5000 --name fitness-app fitness-app
