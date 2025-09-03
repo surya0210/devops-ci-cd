@@ -58,7 +58,7 @@ jobs:
           cd ~/app
 
           if [ ! -d "devops-ci-cd-main" ]; then
-            git clone https://github.com/<your-username>/<your-repo>.git devops-ci-cd-main
+            git clone https://github.com/surya0210/devops-ci-cd.git
           fi
 
           cd devops-ci-cd-main
