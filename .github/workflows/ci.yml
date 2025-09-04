@@ -79,4 +79,4 @@ jobs:
 
           # Build new image & run
           sudo docker build -t fitness-app .
-          sudo docker run -d -p 5000:5000 --name fitness-app fitness-app
+          sudo docker run -d -p 5001:5001 --name fitness-app fitness-app
