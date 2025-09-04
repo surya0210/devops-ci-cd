@@ -236,15 +236,19 @@ Attaching screenshots for reference
 
 EC2 instance
 
-![alt text](<Screenshot (5).png>)
+![alt text](ec2_instance.png)
 
 github actions
-![alt text](<Screenshot (9).png>)
+![alt text](github_actions.png)
 
 Aws ec2 instance creation
-![alt text](<Screenshot (8).png>)
+![alt text](aws_console.png)
 
 End points postman hit.
-![alt text](<Screenshot (4).png>) ![alt text](<Screenshot (1).png>) ![alt text](<Screenshot (3).png>)
+![alt text](<get_call.png)
+
+![alt text](delete_call.png)
+
+![alt text](post_call.png)
 
 Please let me know when to turn on the server for your verifcation.Turning it off now due to low credits.
