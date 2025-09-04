@@ -47,37 +47,37 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-    - name: Deploy to EC2 via SSH
-      uses: appleboy/ssh-action@v0.1.10
-      with:
-        host: ${{ secrets.EC2_HOST }}
-        username: ${{ secrets.EC2_USER }}
-        key: ${{ secrets.EC2_SSH_KEY }}
-        script: |
-          rm -rf /home/ubuntu/app/
-          mkdir -p ~/app
-          cd ~/app
+      - name: Deploy to EC2 via SSH
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            rm -rf /home/ubuntu/app/
+            mkdir -p ~/app
+            cd ~/app
 
-            # Clone repo if not exists
-            if [ ! -d "devops-ci-cd" ]; then
-              git clone https://github.com/surya0210/devops-ci-cd.git
-            fi
+              # Clone repo if not exists
+              if [ ! -d "devops-ci-cd" ]; then
+                git clone https://github.com/surya0210/devops-ci-cd.git
+              fi
 
-            cd devops-ci-cd
+              cd devops-ci-cd
 
-            # Allow git safe directory
-            git config --global --add safe.directory /home/ubuntu/app/devops-ci-cd
+              # Allow git safe directory
+              git config --global --add safe.directory /home/ubuntu/app/devops-ci-cd
 
-            # Pull latest changes
-            git pull origin main
+              # Pull latest changes
+              git pull origin main
 
-            # Stop & remove old container
-            sudo docker stop fitness-app || true
-            sudo docker rm fitness-app || true
+              # Stop & remove old container
+              sudo docker stop fitness-app || true
+              sudo docker rm fitness-app || true
 
-            # Optional: clean up dangling images
-            sudo docker system prune -af || true
+              # Optional: clean up dangling images
+              sudo docker system prune -af || true
 
-            # Build new image & run
-            sudo docker build -t fitness-app .
-            sudo docker run -d -p 5001:5001 --name fitness-app fitness-app
+              # Build new image & run
+              sudo docker build -t fitness-app .
+              sudo docker run -d -p 5001:5001 --name fitness-app fitness-app
