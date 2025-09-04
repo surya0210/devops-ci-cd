@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{{ title or "ACEest Fitness & Gym" }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1>ACEest Fitness & Gym</h1>
+      <nav class="nav">
+        <a href="{{ url_for('main.home') }}">Home</a>
+        <a href="#" aria-disabled="true">Members</a>
+        <a href="#" aria-disabled="true">Plans</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <small>© {{ 2025 }} ACEest Fitness & Gym</small>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <h2>Welcome to ACEest</h2>
+  <p>Your hub for managing members, sessions, and progress.</p>
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-number">{{ stats.total_members }}</div>
+      <div class="stat-label">Total Members</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">{{ stats.active_today }}</div>
+      <div class="stat-label">Active Today</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">{{ stats.classes }}</div>
+      <div class="stat-label">Classes</div>
+    </div>
+  </div>
+  <a class="cta" href="#" aria-disabled="true">Get Started</a>
+</section>
+
+<section class="grid">
+  <article class="card">
+    <h3>Member Management</h3>
+    <p>Add, search, and manage member profiles with ease.</p>
+  </article>
+  <article class="card">
+    <h3>Sessions & Bookings</h3>
+    <p>Plan classes and let members book slots seamlessly.</p>
+  </article>
+  <article class="card">
+    <h3>Progress Tracking</h3>
+    <p>Track workouts, attendance, and achievements.</p>
+  </article>
+</section>
+{% endblock %}
