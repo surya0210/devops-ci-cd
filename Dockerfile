@@ -1,25 +1,28 @@
-# Use Python 3.10.12 slim image as base
+# Use slim Python base
 FROM python:3.10.12-slim
 
-# Set working directory in container
+# No .pyc files, unbuffered logs
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+# Set working dir
 WORKDIR /app
 
-# Copy requirements file first to leverage Docker layer caching
+# Copy deps first (layer caching)
 COPY requirements.txt .
-
-# Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy application code and templates
-COPY app.py .
-COPY templates/ templates/
+# Copy whole project (app/ package + app.py)
+COPY . .
 
-# Expose the port the app runs on
+# Expose port
 EXPOSE 5001
 
-# Set environment variables
+# Flask environment
 ENV FLASK_APP=app.py
 ENV FLASK_ENV=production
+ENV FLASK_RUN_HOST=0.0.0.0
+ENV FLASK_RUN_PORT=5001
 
-# Run the application
-CMD ["python3", "app.py"]
+# Run with Flask CLI
+CMD ["flask", "run"]
