@@ -3,7 +3,7 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key_here' # Needed for flashing messages
+app.secret_key = 'your__here' # Needed for flashing messages
 
 # A simple list to act as our "database"
 workouts = []
