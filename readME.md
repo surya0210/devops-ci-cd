@@ -231,3 +231,22 @@ Example badges you can add to this README once CI is live:
 ## 🙌 Credits
 
 Crafted for ACEest Fitness & Gym as a base to iterate on features like workout logging, member management, dashboards, and more.
+
+Attaching screenshots for reference
+
+EC2 instance
+
+![alt text](<Screenshot (5).png>)
+
+github actions
+
+![alt text](<Screenshot (7).png>)
+
+Aws ec2 instance creation
+
+![alt text](<Screenshot (6).png>)
+
+End points postman hit.
+![alt text](<Screenshot (4).png>) ![alt text](<Screenshot (1).png>) ![alt text](<Screenshot (3).png>)
+
+Please let me know when to turn on the server for your verifcation.Turning it off now due to low credits.
