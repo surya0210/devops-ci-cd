@@ -239,12 +239,10 @@ EC2 instance
 ![alt text](<Screenshot (5).png>)
 
 github actions
-
-![alt text](<Screenshot (7).png>)
+![alt text](<Screenshot (9).png>)
 
 Aws ec2 instance creation
-
-![alt text](<Screenshot (6).png>)
+![alt text](<Screenshot (8).png>)
 
 End points postman hit.
 ![alt text](<Screenshot (4).png>) ![alt text](<Screenshot (1).png>) ![alt text](<Screenshot (3).png>)
