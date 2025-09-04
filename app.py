@@ -11,7 +11,7 @@ workouts = []
 @app.route('/')
 def index():
     """Renders tthe main page with the workout form."""
-    return {"msd":"hh"}
+    return {"msd":"surya"}
 
 @app.route('/add_workout', methods=['POST'])
 def add_workout():
